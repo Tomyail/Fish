@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:d8648c18c74296d0fd69007849fc894a$ -->
+<TextureAtlas imagePath="tiaowenFish.png">
+    <SubTexture name="tiaowenFish_01" x="2" y="2" width="32" height="101"/>
+    <SubTexture name="tiaowenFish_02" x="36" y="2" width="32" height="101"/>
+    <SubTexture name="tiaowenFish_03" x="70" y="2" width="32" height="101"/>
+    <SubTexture name="tiaowenFish_04" x="104" y="2" width="32" height="101"/>
+    <SubTexture name="tiaowenFish_05" x="138" y="2" width="32" height="101"/>
+    <SubTexture name="tiaowenFish_06" x="172" y="2" width="32" height="101"/>
+    <SubTexture name="tiaowenFish_07" x="206" y="2" width="31" height="101"/>
+    <SubTexture name="tiaowenFish_09" x="2" y="105" width="30" height="101" frameX="0" frameY="-1" frameWidth="32" frameHeight="103"/>
+    <SubTexture name="tiaowenFish_10" x="34" y="105" width="28" height="101" frameX="-2" frameY="-1" frameWidth="32" frameHeight="103"/>
+    <SubTexture name="tiaowenFish_11" x="64" y="105" width="28" height="103" frameX="-1" frameY="0" frameWidth="32" frameHeight="103"/>
+    <SubTexture name="tiaowenFish_12" x="94" y="105" width="26" height="101" frameX="-3" frameY="-1" frameWidth="32" frameHeight="103"/>
+    <SubTexture name="tiaowenFish_13" x="122" y="105" width="26" height="101" frameX="-3" frameY="-1" frameWidth="32" frameHeight="103"/>
+    <SubTexture name="tiaowenFish_14" x="150" y="105" width="26" height="101" frameX="-2" frameY="-1" frameWidth="32" frameHeight="103"/>
+    <SubTexture name="tiaowenFish_15" x="178" y="105" width="27" height="101" frameX="-2" frameY="-1" frameWidth="31" frameHeight="103"/>
+    <SubTexture name="tiaowenFish_17" x="207" y="105" width="28" height="102" frameX="-2" frameY="0" frameWidth="32" frameHeight="102"/>
+    <SubTexture name="tiaowenFish_18" x="2" y="210" width="28" height="102" frameX="-1" frameY="0" frameWidth="32" frameHeight="102"/>
+    <SubTexture name="tiaowenFish_19" x="32" y="210" width="28" height="102" frameX="-1" frameY="0" frameWidth="32" frameHeight="102"/>
+    <SubTexture name="tiaowenFish_20" x="62" y="210" width="30" height="102" frameX="0" frameY="0" frameWidth="32" frameHeight="102"/>
+    <SubTexture name="tiaowenFish_21" x="94" y="210" width="32" height="102"/>
+    <SubTexture name="tiaowenFish_22" x="128" y="210" width="32" height="102"/>
+</TextureAtlas>

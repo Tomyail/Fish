@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:58a2302911865455d7bf9c599f02a6e7$ -->
+<TextureAtlas imagePath="goldcoin.png">
+    <SubTexture name="goldcoin_01" x="2" y="2" width="48" height="10" frameX="0" frameY="-19" frameWidth="48" frameHeight="48"/>
+    <SubTexture name="goldcoin_02" x="52" y="2" width="48" height="32" frameX="0" frameY="-8" frameWidth="48" frameHeight="48"/>
+    <SubTexture name="goldcoin_03" x="2" y="36" width="48" height="48"/>
+    <SubTexture name="goldcoin_04" x="52" y="36" width="48" height="48"/>
+    <SubTexture name="goldcoin_05" x="2" y="86" width="48" height="36" frameX="0" frameY="-6" frameWidth="48" frameHeight="48"/>
+    <SubTexture name="goldcoin_07" x="52" y="86" width="48" height="10" frameX="0" frameY="-19" frameWidth="48" frameHeight="48"/>
+    <SubTexture name="goldcoin_08" x="2" y="124" width="48" height="32" frameX="0" frameY="-8" frameWidth="48" frameHeight="48"/>
+    <SubTexture name="goldcoin_09" x="52" y="124" width="48" height="48"/>
+    <SubTexture name="goldcoin_10" x="2" y="174" width="48" height="48"/>
+    <SubTexture name="goldcoin_11" x="52" y="174" width="48" height="36" frameX="0" frameY="-6" frameWidth="48" frameHeight="48"/>
+</TextureAtlas>

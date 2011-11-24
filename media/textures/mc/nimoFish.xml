@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:bb22623e93f03dde7ccf622c2103e2c4$ -->
+<TextureAtlas imagePath="nimoFish.png">
+    <SubTexture name="nimoFish_01" x="2" y="2" width="30" height="68"/>
+    <SubTexture name="nimoFish_02" x="34" y="2" width="30" height="68"/>
+    <SubTexture name="nimoFish_03" x="66" y="2" width="30" height="68"/>
+    <SubTexture name="nimoFish_04" x="98" y="2" width="30" height="68"/>
+    <SubTexture name="nimoFish_05" x="130" y="2" width="30" height="68"/>
+    <SubTexture name="nimoFish_06" x="162" y="2" width="28" height="68" frameX="-1" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_07" x="192" y="2" width="28" height="68" frameX="-1" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_08" x="222" y="2" width="28" height="68" frameX="0" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_10" x="2" y="72" width="26" height="68" frameX="-1" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_11" x="30" y="72" width="24" height="68" frameX="-2" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_12" x="56" y="72" width="24" height="68" frameX="-2" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_13" x="82" y="72" width="24" height="68" frameX="-2" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_14" x="108" y="72" width="24" height="68" frameX="-2" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_15" x="134" y="72" width="24" height="68" frameX="-3" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_16" x="160" y="72" width="24" height="68" frameX="-3" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_17" x="186" y="72" width="26" height="68" frameX="-2" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_19" x="214" y="72" width="28" height="68" frameX="-1" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_20" x="2" y="142" width="28" height="68" frameX="-1" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_21" x="32" y="142" width="28" height="68" frameX="-1" frameY="0" frameWidth="30" frameHeight="68"/>
+    <SubTexture name="nimoFish_22" x="62" y="142" width="30" height="68"/>
+</TextureAtlas>

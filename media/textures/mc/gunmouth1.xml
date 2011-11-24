@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:6125bdab60e64ad1c2d44b34ca71c914$ -->
+<TextureAtlas imagePath="gunmouth1.png">
+    <SubTexture name="gunmouth5_01" x="2" y="2" width="52" height="88"/>
+    <SubTexture name="gunmouth5_02" x="2" y="92" width="52" height="88"/>
+    <SubTexture name="gunmouth5_03" x="2" y="182" width="52" height="88"></SubTexture>
+    <SubTexture name="gunmouth5_04" x="2" y="272" width="52" height="88"/>
+    <SubTexture name="gunmouth5_06" x="2" y="362" width="52" height="74" frameX="0" frameY="0" frameWidth="52" frameHeight="88"/>
+</TextureAtlas>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:8be6598de0b8f0df1b334eb12b8e1ee2$ -->
+<TextureAtlas imagePath="fontStyle.png">
+    <SubTexture name="fontstyle_01" x="2" y="2" width="23" height="26" frameX="-1" frameY="0" frameWidth="25" frameHeight="26"/>
+    <SubTexture name="fontstyle_02" x="27" y="2" width="21" height="26" frameX="-2" frameY="0" frameWidth="25" frameHeight="26"/>
+    <SubTexture name="fontstyle_03" x="50" y="2" width="25" height="26"/>
+    <SubTexture name="fontstyle_04" x="77" y="2" width="23" height="26" frameX="-1" frameY="0" frameWidth="25" frameHeight="26"/>
+    <SubTexture name="fontstyle_05" x="102" y="2" width="25" height="26"/>
+    <SubTexture name="fontstyle_07" x="129" y="2" width="23" height="26" frameX="-1" frameY="0" frameWidth="25" frameHeight="26"/>
+    <SubTexture name="fontstyle_08" x="154" y="2" width="25" height="26"/>
+    <SubTexture name="fontstyle_09" x="181" y="2" width="23" height="26" frameX="-2" frameY="0" frameWidth="25" frameHeight="26"/>
+    <SubTexture name="fontstyle_10" x="206" y="2" width="23" height="26" frameX="-1" frameY="0" frameWidth="25" frameHeight="26"/>
+    <SubTexture name="fontstyle_11" x="231" y="2" width="21" height="26" frameX="-2" frameY="0" frameWidth="25" frameHeight="26"/>
+</TextureAtlas>
