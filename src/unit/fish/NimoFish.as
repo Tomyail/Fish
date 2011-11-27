@@ -23,6 +23,11 @@ package unit.fish
             Starling.juggler.add(movieClip);
         }
         
+        //test
+        public function changeTextures():void{
+            super.changeTexture();
+        }
+        
         public function play():void{
             movieClip.play();
         }

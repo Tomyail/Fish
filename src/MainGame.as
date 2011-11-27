@@ -1,10 +1,10 @@
 package
 {
-    import flash.display.Bitmap;
-    import flash.events.MouseEvent;
-    import flash.ui.Mouse;
+    import data.GlobalData;
     
-    import starling.core.Starling;
+    import flash.display.Bitmap;
+    import flash.utils.getTimer;
+    
     import starling.display.Image;
     import starling.display.MovieClip;
     import starling.display.Sprite;
@@ -12,13 +12,9 @@ package
     import starling.events.Touch;
     import starling.events.TouchEvent;
     import starling.events.TouchPhase;
-    import starling.textures.Texture;
-    import starling.textures.TextureAtlas;
     
     import unit.fish.NimoFish;
     import unit.gun.Gun;
-    import unit.gun.GunBody;
-    import unit.gun.GunHead;
     
     public class MainGame extends Sprite
     {
@@ -32,10 +28,9 @@ package
         private var xml:XML;
         private var yellowFishMc:MovieClip;
         
+        public var gameData:GlobalData = new GlobalData();
         private var gun:Gun = new Gun;
 
-        public var globalMouseX:Number = 0;
-        public var globalMouseY:Number = 0
         public function MainGame()
         {
             addEventListener(Event.ADDED_TO_STAGE,onAdded);
@@ -44,11 +39,11 @@ package
         
         private function updateFrame(e:Event):void
         {
-            // TODO Auto Generated method stub
-            
+            gameData.nowTime = getTimer();
             gun.updateFrame();
         }
         
+        private var fish:NimoFish = new NimoFish();
         private function onAdded(e:Event):void
         {
            
@@ -66,14 +61,17 @@ package
         private function initialization():void
         {
             gun.initialization(this);
+            fish.initialization();
+            addChild(fish);
         }
         
         private function onTouch(e:TouchEvent):void{
             var t:Touch = e.getTouch(stage);
-            globalMouseX = t.globalX;
-            globalMouseY = t.globalY;
+            gameData.globalMouseX = t.globalX;
+            gameData.globalMouseY = t.globalY;
             if(t.phase == TouchPhase.BEGAN){
-                gun.fire()
+                gun.fire();
+                fish.changeTextures();
             }
             else if(t.phase == TouchPhase.ENDED){
                 gun.stop();

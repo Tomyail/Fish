@@ -5,9 +5,11 @@ package
     import flash.display.StageAlign;
     import flash.display.StageScaleMode;
     import flash.events.Event;
+    import flash.geom.Rectangle;
     
     import starling.core.Starling;
     
+    [SWF(backgroundColor="0x000000",width="800",height="600")] 
     public class Fish extends Sprite
     {
         private var mStarling:Starling;
@@ -17,7 +19,7 @@ package
             
             Starling.multitouchEnabled = true;
             
-            mStarling = new Starling(MainGame, stage);
+            mStarling = new Starling(MainGame, stage,new Rectangle(0,0,800,600));
             mStarling.simulateMultitouch = true;
             mStarling.enableErrorChecking = false;
             mStarling.start();

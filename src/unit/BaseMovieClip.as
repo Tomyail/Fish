@@ -25,6 +25,10 @@ package unit
             movieClip.pivotY = movieClip.height >>1;
         }
         
+        protected function changeTexture():void{
+            movieClip.setTextures(frames);
+        }
+        
         public function clone():MovieClip{
             if(frames != null){
                 var cloneMc:MovieClip = new MovieClip(frames,fps);

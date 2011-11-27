@@ -29,7 +29,7 @@ package unit.gun
         }
         
         public function updateFrame():void{
-            gunHead.rotation = Math.atan2(mainGame.globalMouseY - this.y,mainGame.globalMouseX - this.x)+Math.PI/2;
+            gunHead.rotation = Math.atan2(mainGame.gameData.globalMouseY - this.y,mainGame.gameData.globalMouseX - this.x)+Math.PI/2;
         }
         /**创建炮台*/
         private function createGun():void
