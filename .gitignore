@@ -1,0 +1,21 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+bin/
+starling/doc/html/
+html-template/
+
+# Project property files
+.actionScriptProperties
+.flexProperties
+.settings/
+.project
+.FlexUnitSettings
+.flexLibProperties
+
+# OS X folders
+.DS_Store
+
+#Vim backup
+.*~
+.*swp

@@ -26,7 +26,7 @@ package unit
         }
         
         protected function changeTexture():void{
-            movieClip.setTextures(frames);
+//            movieClip.setTextures(frames);
         }
         
         public function clone():MovieClip{

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:0ff2e11a7c9c009aa8a1b9da1f9b8d63$ -->
+<TextureAtlas imagePath="nets.png">
+    <SubTexture name="nets_01" x="2" y="2" width="22" height="34" frameX="-25" frameY="-26" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_02" x="26" y="2" width="22" height="18" frameX="-18" frameY="-20" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_03" x="50" y="2" width="34" height="38" frameX="-13" frameY="-11" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_04" x="86" y="2" width="48" height="52" frameX="-8" frameY="-2" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_06" x="136" y="2" width="50" height="58" frameX="-6" frameY="0" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_07" x="188" y="2" width="54" height="54" frameX="-4" frameY="-1" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_08" x="2" y="62" width="56" height="60" frameX="-3" frameY="0" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_09" x="60" y="62" width="56" height="58" frameX="-4" frameY="-2" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_11" x="118" y="62" width="58" height="58" frameX="-2" frameY="-2" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_12" x="178" y="62" width="58" height="60" frameX="-2" frameY="0" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_13" x="2" y="124" width="56" height="52" frameX="-1" frameY="0" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_14" x="60" y="124" width="58" height="52" frameX="0" frameY="0" frameWidth="60" frameHeight="60"/>
+    <SubTexture name="nets_16" x="120" y="124" width="54" height="48" frameX="0" frameY="0" frameWidth="60" frameHeight="60"/>
+</TextureAtlas>

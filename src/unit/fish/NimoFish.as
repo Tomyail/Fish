@@ -4,17 +4,17 @@ package unit.fish
 
     public class NimoFish extends BaseFish
     {
-        [Embed(source='../media/textures/mc/nimoFish.png')]
+        [Embed(source='../media/textures/mc/nets.png')]
         private static const __bmp:Class;
-        [Embed(source="../media/textures/mc/nimoFish.xml", mimeType="application/octet-stream")]
+        [Embed(source="../media/textures/mc/nets.xml", mimeType="application/octet-stream")]
         private static const __xml:Class;
-        private static const __name:String = "nimoFish";
+        private static const __name:String = "nets";
         
         public function NimoFish()
         {
         }
         
-        public function initialization(x:int = 0,y:int = 0):void{
+        public function initialization(x:int = 30,y:int = 30):void{
             createMovieclip(new __bmp,XML(new __xml),__name);
             movieClip.x = x;
             movieClip.y = y;

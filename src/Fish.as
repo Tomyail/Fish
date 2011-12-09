@@ -23,7 +23,6 @@ package
             mStarling.simulateMultitouch = true;
             mStarling.enableErrorChecking = false;
             mStarling.start();
-            
         }
         
     }
