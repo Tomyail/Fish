@@ -2,12 +2,12 @@ package utils
 {
     import flash.utils.Dictionary;
 
-    public class HashDic
+    public class Marker
     {
         private var _dic:Dictionary;
         private var maxlength:int;
         private var i:int;
-        public function HashDic(maxLength:int)
+        public function Marker(maxLength:int)
         {
             _dic = new Dictionary;
             this.maxlength = maxLength;
