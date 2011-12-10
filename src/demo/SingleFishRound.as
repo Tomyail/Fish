@@ -9,7 +9,7 @@ package demo
     import flash.geom.Point;
     import flash.utils.Dictionary;
 
-    public class FishRoundFly extends Sprite
+    public class SingleFishRound extends Sprite
     {
         private var fish:Sprite = new Sprite;
         private var increaseDegree:Number = 1;
@@ -37,7 +37,7 @@ package demo
 //        private var dataLock:Boolean = false;
         private var dic:Dictionary = new Dictionary;
         private var m:Matrix = new Matrix;
-        public function FishRoundFly()
+        public function SingleFishRound()
         {
             createUI();
             initData();
