@@ -79,7 +79,8 @@ package demo
 		protected function onM(event:MouseEvent):void
 		{
 			//不用radian的原因在于其无法指出方向
-			if(collisionDetection.collisionDetect(bullet.unrotatedRect,bullet.radian,fishRec,currentAngle *Math.PI/180,3))
+//			if(collisionDetection.collisionDetect(bullet.unrotatedRect,bullet.radian,fishRec,currentAngle *Math.PI/180,4))
+            if(collisionDetection.collisionDetect(bullet.unrotatedRect,bullet.radian,fishRec,currentAngle *Math.PI/180) ||collisionDetection.collisionDetect(fishRec,currentAngle *Math.PI/180,bullet.unrotatedRect,bullet.radian))
 			{
 				fish.filters = [new GlowFilter];
 			}else{
