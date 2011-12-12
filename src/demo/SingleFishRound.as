@@ -5,9 +5,16 @@ package demo
     
     import flash.display.Sprite;
     import flash.events.*;
+    import flash.filters.BlurFilter;
+    import flash.filters.GlowFilter;
     import flash.geom.Matrix;
     import flash.geom.Point;
+    import flash.geom.Rectangle;
     import flash.utils.Dictionary;
+    
+    import starling.display.Button;
+    
+    import utils.CollisionDetection;
 
     public class SingleFishRound extends Sprite
     {
@@ -31,12 +38,18 @@ package demo
             {label:"CenterY",v:"110",t:"centerY",h:changeValue},
             {label:"CurrentX",v:"50",t:"currentX",h:changeValue},
             {label:"CurrentY",v:"0",t:"currentY",h:changeValue},
-            {label:"DegreeRate",v:"5",t:"increaseDegree",h:changeValue}
+            {label:"DegreeRate",v:1,t:"increaseDegree",h:changeValue},
+            {label:"BulletRotation",v:0,t:"bulletRotation",h:changeBulletRotation}
         ]);
         //            {label:"DegreeRate",v:"1",t:"nn",h:changeValue}
 //        private var dataLock:Boolean = false;
         private var dic:Dictionary = new Dictionary;
         private var m:Matrix = new Matrix;
+
+        private var bullet:Bullet;
+        private var bulletRotation:Number;
+        private var collisionDetection:CollisionDetection = new CollisionDetection;
+        private var fishRec:Rectangle = new Rectangle;
         public function SingleFishRound()
         {
             createUI();
@@ -45,16 +58,37 @@ package demo
             this.graphics.lineStyle(1);
             
             fish.graphics.beginFill(0);
-            fish.graphics.lineTo(10,30);
-            fish.graphics.lineTo(-10,30);
-            fish.graphics.lineTo(0,0);
-            fish.graphics.endFill();
-//            fish.graphics.drawRect(0,0,20,40);
+//            fish.graphics.lineTo(10,30);
+//            fish.graphics.lineTo(-10,30);
+//            fish.graphics.lineTo(0,0);
+//            fish.graphics.endFill();
+            fish.graphics.drawRect(0,0,20,40);
             addChild(fish);
+            fishRec.width = 20;
+            fishRec.height = 40;
+            
+            bullet = new Bullet();
+            addChild(bullet);
             
 //            m.rotate(Math.PI/180);
 //            fish.rotation = 90;
             this.addEventListener(Event.ENTER_FRAME,updateFrame);
+			stage.addEventListener(MouseEvent.MOUSE_MOVE,onM);
+        }
+		
+		protected function onM(event:MouseEvent):void
+		{
+			//不用radian的原因在于其无法指出方向
+			if(collisionDetection.collisionDetect(bullet.unrotatedRect,bullet.radian,fishRec,currentAngle *Math.PI/180,3))
+			{
+				fish.filters = [new GlowFilter];
+			}else{
+				fish.filters = null;
+			}
+		}
+		
+        private function changeBulletRotation(e:Event):void{
+            bullet.setRotation(e.target.text);
         }
         
         /** 创建交互UI*/
@@ -70,6 +104,7 @@ package demo
             }
             addChild(uiContainer);
             uiContainer.x = 300;
+            
         }
         
         /**初始化数据*/
@@ -117,11 +152,17 @@ package demo
             fish.x = currentX + centerX;
             fish.y = currentY + centerY;
             this.graphics.lineTo(fish.x,fish.y);
-            currentAngle = Math.atan2(currentY,currentX)*180/Math.PI;
+            radias = Math.atan2(currentY,currentX);
+            currentAngle = radias*180/Math.PI;
             increaseDegree > 0 ? currentAngle +=180:currentAngle -= 0
             fish.rotation = currentAngle;
 //            dic["CurrentX"].text = currentX
 //                trace("currentY",currentY,"centerY",centerY)//,"fish.y",fish.y)
+            
+            fishRec.x = fish.x
+            fishRec.y = fish.y;   
+            bullet.setXY(this.mouseX,this.mouseY);
+//            trace(collisionDetection.collisionDetect(bullet.unrotatedRect,bullet.radian,fishRec,radias))
         }
     }
 }
