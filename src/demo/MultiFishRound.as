@@ -88,7 +88,7 @@ package demo
                             degreeRate:dic["degreeRate"].v,
                             noDegreeX:fishLeaderRadius + j*dic["fcg"].v,//attention
                             noDegreeY:0,                                         
-                            currentDegree:fishLeaderAngle - rowIndex * dic["degreeGap"].v * dic["degreeRate"].v / Math.abs(dic["degreeRate"].v)
+                            currentDegree:fishLeaderAngle - rowIndex * dic["degreeGap"].v * (dic["degreeRate"].v >= 0 ? 1:-1)
                         }
                     );
                     addChild(fishGroup[visualFish]);
