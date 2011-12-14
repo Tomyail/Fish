@@ -66,7 +66,7 @@ package
         private function initialization():void
         {
             gun.initialization(this);
-            fish.initialization();
+            fish.initialization(this,0);
             addChild(fish);
             
             fishFacatory.initialization(this);

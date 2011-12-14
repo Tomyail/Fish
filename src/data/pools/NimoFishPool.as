@@ -18,7 +18,7 @@ package data.pools
             this.fishVector = new Vector.<NimoFish>;
             for(i = 0;i<initNumber;i++){
                 fishVector[i] = new NimoFish();
-                fishVector[i].initialization();
+                fishVector[i].initialization(mainGame,i);
             }
         }
     }

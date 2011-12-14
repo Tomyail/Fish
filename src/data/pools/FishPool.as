@@ -35,6 +35,11 @@ package data.pools
         public function flyMarkedFish():void{
             for each (index in fishMarker.marked){
                 fishVector[index].updateFrame();
+                    
+                if(fishVector[index].hasDisplayed && fishVector[index].isOutBound()){
+                    killFish(index);
+                    trace(index,"kill")
+                }
             }
         }
         

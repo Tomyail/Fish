@@ -27,11 +27,16 @@ package unit.fish
         
         protected var fish:MovieClip;
         protected var frames:Vector.<Texture>;
+        
+        protected var mainGame:MainGame;
+        
+        public var hasDisplayed:Boolean = false;
+        public var fishID:int;
         public function BaseFish()
         {
         }
         
-        public function initialization():void{
+        public function initialization(mainGame:MainGame,fishID:int):void{
             throw new Error("please override...")
         }
         
@@ -46,6 +51,13 @@ package unit.fish
             fish.x = currentX + centerX;
             fish.y = currentY + centerY;
             fish.rotation = currentDegree * Math.PI/180;
+            
+//            trace(fishID,isOutBound());
+            if(!hasDisplayed && !isOutBound()){
+                trace(fishID,"hasDisplayed")
+                hasDisplayed = true;
+            }
+//            trace(fishID,"fly");
         }
         
         public function play():void{
@@ -54,6 +66,18 @@ package unit.fish
         
         public function pause():void{
             fish.pause();
+        }
+        
+        /** 检查鱼是否游出边界*/
+        public function isOutBound():Boolean{
+            if(
+                fish.x + fish.width < 0     ||  //left
+                fish.x > stage.stageWidth   ||  //right
+                fish.y + fish.height< 0     ||  //top
+                fish.y > stage.stageHeight      //bottom
+               )
+                return true;
+            return false;
         }
         
         public function setFlyData(obj:Object):void{
@@ -71,6 +95,7 @@ package unit.fish
             radian = degreeRate * Math.PI / 180;
             cos = Math.cos(radian);
             sin = Math.sin(radian);
+            hasDisplayed = false;
         }
         
     }

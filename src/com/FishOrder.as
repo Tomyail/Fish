@@ -37,7 +37,7 @@ package com
             {label:"CenterX",       v:0,t:"centerX", h:changeValue},   //圆心
             {label:"CenterY",       v:0,t:"centerY", h:changeValue},
             {label:"FirstCurrentX", v:500, t:"currentX",h:changeValue},   //最接近圆心的那列鱼中第一排的初始坐标
-            {label:"FirstCurrentY", v:0,  t:"currentY",h:changeValue},
+            {label:"FirstCurrentY", v:-100,  t:"currentY",h:changeValue},
             {label:"DegreeRate",    v:1,  t:"degreeRate", h:changeValue},//每条鱼的旋转增量
             {label:"DegreeGap",     v:8,  t:"degreeGap", h:changeValue}  //相邻两排鱼之间的角度差
         ]);
@@ -67,7 +67,7 @@ package com
         private function createFishGroup():void{
             fishLeaderAngle = Math.atan2(dic["currentY"].v,dic["currentX"].v)*180/Math.PI;
             fishLeaderRadius = Math.pow(dic["currentX"].v*dic["currentX"].v +dic["currentY"].v*dic["currentY"].v,.5);
-            trace(fishLeaderAngle ,fishLeaderRadius);
+//            trace(fishLeaderAngle ,fishLeaderRadius);
             visualFish = 0;
             rowIndex = 0;
             //循环鱼总数

@@ -2,7 +2,7 @@ package unit.fish
 {
     import starling.core.Starling;
     import starling.display.MovieClip;
-
+    
     import utils.FrameGenerator;
     public class NimoFish extends BaseFish
     {
@@ -17,7 +17,9 @@ package unit.fish
             this.name = "nimo";
         }
         
-        override public function initialization():void{
+        override public function initialization(mainGame:MainGame,fishID:int):void{
+            this.mainGame = mainGame;
+            this.fishID = fishID;
             frames = FrameGenerator.generateFrame(new __bmp,XML(new __xml),__name);
             fish = new MovieClip(frames);
             addChild(fish);
