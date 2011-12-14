@@ -1,6 +1,5 @@
 package com
 {
-    import data.pools.FishPoolManager;
 
     public class FishFacatory
     {

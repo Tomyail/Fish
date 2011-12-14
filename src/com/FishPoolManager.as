@@ -1,8 +1,9 @@
-package data.pools
+package com
 {
     import flash.utils.Dictionary;
     
     import unit.fish.BaseFish;
+    import data.pools.NimoFishPool;
 
     public class FishPoolManager
     {

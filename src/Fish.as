@@ -9,11 +9,15 @@ package
     
     import starling.core.Starling;
     
+    import utils.Stats;
+    
     [SWF(backgroundColor="0x000000",width="800",height="600")] 
     public class Fish extends Sprite
     {
         private var mStarling:Starling;
         public function Fish():void{
+            var stats:Stats = new Stats();
+            addChild(stats);
             stage.scaleMode = StageScaleMode.NO_SCALE;
             stage.align = StageAlign.TOP_LEFT;
             

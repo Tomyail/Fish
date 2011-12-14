@@ -32,6 +32,7 @@ package unit.fish
         
         public var hasDisplayed:Boolean = false;
         public var fishID:int;
+        public var weight:int;
         public function BaseFish()
         {
         }

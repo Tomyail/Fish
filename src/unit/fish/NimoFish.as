@@ -15,6 +15,7 @@ package unit.fish
         public function NimoFish()
         {
             this.name = "nimo";
+            this.weight = 2;
         }
         
         override public function initialization(mainGame:MainGame,fishID:int):void{
