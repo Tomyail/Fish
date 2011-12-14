@@ -8,6 +8,7 @@ package com
     import unit.fish.BaseFish;
     
     import utils.Marker;
+    import utils.RandomGenerator;
 
     public class FishOrder
     {
@@ -56,24 +57,46 @@ package com
         }
         
         public function runOrder():void{
-            for each (o in data){
-                dic[o.t] = o;
-            }
+//            for each (o in data){
+//                dic[o.t] = o;
+//            }
+            createRandomData();
             createFishGroup();
+        }
+        
+        private function createRandomData():void{
+//            {label:"FishNumber",    v:10, t:"fn", h:changeValue},        //鱼总数
+//            {label:"FishColumn",    v:2,  t:"fc", h:changeValue},        //鱼列数
+//            {label:"FishColumnGap", v:20,  t:"fcg",h:changeValue},        //相邻列之间鱼的半径增量
+//            {label:"CenterX",       v:0,t:"centerX", h:changeValue},   //圆心
+//            {label:"CenterY",       v:0,t:"centerY", h:changeValue},
+//            {label:"FirstCurrentX", v:500, t:"currentX",h:changeValue},   //最接近圆心的那列鱼中第一排的初始坐标
+//            {label:"FirstCurrentY", v:-100,  t:"currentY",h:changeValue},
+//            {label:"DegreeRate",    v:1,  t:"degreeRate", h:changeValue},//每条鱼的旋转增量
+//            {label:"DegreeGap",     v:8,  t:"degreeGap", h:changeValue}  //相邻两排鱼之间的角度差
+            dic["fn"] = RandomGenerator.getIntFromRange(1,15);              //随机一队鱼的数量
+            dic["fc"] = RandomGenerator.getIntFromRange(1,3);
+            dic["fcg"] = 20;
+            dic["centerX"] = 0;
+            dic["centerY"] = 0;
+            dic["currentX"] = RandomGenerator.getIntFromRange(100,500);
+            dic["currentY"] = RandomGenerator.getIntFromRange(100,500);
+            dic["degreeRate"] = RandomGenerator.getObjectFromSource([-1,1]);
+            dic["degreeGap"] = RandomGenerator.getIntFromRange(8,14);
         }
         
         
         private function createFishGroup():void{
-            fishLeaderAngle = Math.atan2(dic["currentY"].v,dic["currentX"].v)*180/Math.PI;
-            fishLeaderRadius = Math.pow(dic["currentX"].v*dic["currentX"].v +dic["currentY"].v*dic["currentY"].v,.5);
+            fishLeaderAngle = Math.atan2(dic["currentY"],dic["currentX"])*180/Math.PI;
+            fishLeaderRadius = Math.pow(dic["currentX"]*dic["currentX"] +dic["currentY"]*dic["currentY"],.5);
 //            trace(fishLeaderAngle ,fishLeaderRadius);
             visualFish = 0;
             rowIndex = 0;
             //循环鱼总数
-            while(visualFish < dic["fn"].v){
+            while(visualFish < dic["fn"]){
                 //循环每行鱼
-                for(j = 0;j<dic["fc"].v;j++){
-                    if(visualFish >= dic["fn"].v){
+                for(j = 0;j<dic["fc"];j++){
+                    if(visualFish >= dic["fn"]){
                         break;
                     }
                     
@@ -81,17 +104,17 @@ package com
                     
                     fishGroup[visualFish].setFlyData(
                         {
-                            centerX:dic["centerX"].v,centerY:dic["centerY"].v,
-                            degreeRate:dic["degreeRate"].v,
-                            noDegreeX:fishLeaderRadius + j*dic["fcg"].v,//attention
+                            centerX:dic["centerX"],centerY:dic["centerY"],
+                            degreeRate:dic["degreeRate"],
+                            noDegreeX:fishLeaderRadius + j*dic["fcg"],//attention
                             noDegreeY:0,                                         
-                            currentDegree:fishLeaderAngle - rowIndex * dic["degreeGap"].v * (dic["degreeRate"].v >= 0 ? 1:-1)// / Math.abs(dic["degreeRate"].v)
+                            currentDegree:fishLeaderAngle - rowIndex * dic["degreeGap"] * (dic["degreeRate"] >= 0 ? 1:-1)// / Math.abs(dic["degreeRate"])
                         }
                     );
                     fishGroup[visualFish].play();
 //                    fishManager.addFish(fishGroup[visualFish]);
 //                    marker.addMark(visualFish);
-                    //                    trace("visualFish",visualFish,"dic['fn'].v",dic["fn"].v);
+                    //                    trace("visualFish",visualFish,"dic['fn']",dic["fn"]);
                     visualFish ++;
                 }
                 rowIndex ++;

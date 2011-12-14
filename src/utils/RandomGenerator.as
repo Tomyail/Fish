@@ -6,19 +6,21 @@ package utils
         {
         }
         
-        private static var source:Array;
+        private static var source:Array = new Array;
         private static var i:int;
         /**包括两侧*/
         public static function getIntFromRange(min:int,max:int,step:int = 1):int{
             source.length = 0;
-            for(i = min,i<=max;i+=step){
+            for(i = min;i<=max;i+=step){
                 source.push(i);
             }
-            return parseInt(getObjectFromSource(source));
+            return int(getObjectFromSource(source));
         }
         
         public static function getObjectFromSource(source:Array):Object{
-            return source[Math.random()*source.length]
+            i = Math.random()*source.length;
+            trace(i,source[i]);
+            return source[i]
         }
     }
 }

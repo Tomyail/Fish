@@ -10,7 +10,7 @@ package data.pools
         protected var fishVector:Vector.<*>;
         protected var mainGame:MainGame
         private var index:int;
-        private var birthFish:BaseFish;
+        private var fish:BaseFish;
         public function FishPool()
         {
         }
@@ -22,14 +22,17 @@ package data.pools
         public function addFish():BaseFish{
             index = fishMarker.getAvailableMarkIndex();
             fishMarker.addMark(index);
-            birthFish = fishVector[index];
-            mainGame.addChild(birthFish);
-            return birthFish;
+            fish = fishVector[index];
+            mainGame.gameData.currentWeight += fish.weight;
+            mainGame.addChild(fish);
+            return fish;
         }
         
         public function killFish(fishIndex:int):void{
             fishMarker.removeMark(fishIndex);
-            mainGame.removeChild(fishVector[fishIndex]);
+            fish = fishVector[index];
+            mainGame.gameData.currentWeight -= fish.weight;
+            mainGame.removeChild(fish);
         }
         
         public function flyMarkedFish():void{

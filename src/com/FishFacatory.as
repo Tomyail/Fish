@@ -19,9 +19,9 @@ package com
         }
         public function updateFrame():void{
             fishPoolManager.updateFrame();
-//            if(mainGame.gameData.currentDensity < mainGame.gameData.MAX_DENSITY){
-//                fishOrder.runOrder();
-//            }
+            if(mainGame.gameData.currentWeight < mainGame.gameData.MAX_WEIGHT){
+                fishOrder.runOrder();
+            }
         }
         
     }
