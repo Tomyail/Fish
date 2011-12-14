@@ -1,5 +1,7 @@
 package
 {
+    import com.FishFacatory;
+    
     import data.GlobalData;
     
     import flash.display.Bitmap;
@@ -30,6 +32,8 @@ package
         
         public var gameData:GlobalData = new GlobalData();
         private var gun:Gun = new Gun;
+        
+        private var fishFacatory:FishFacatory = new FishFacatory();
 
         public function MainGame()
         {
@@ -41,6 +45,7 @@ package
         {
             gameData.nowTime = getTimer();
             gun.updateFrame();
+            fishFacatory.updateFrame();
         }
         
         private var fish:NimoFish = new NimoFish();
@@ -63,6 +68,8 @@ package
             gun.initialization(this);
             fish.initialization();
             addChild(fish);
+            
+            fishFacatory.initialization(this);
         }
         
         private function onTouch(e:TouchEvent):void{
@@ -71,7 +78,6 @@ package
             gameData.globalMouseY = t.globalY;
             if(t.phase == TouchPhase.BEGAN){
                 gun.fire();
-                fish.changeTextures();
             }
             else if(t.phase == TouchPhase.ENDED){
                 gun.stop();

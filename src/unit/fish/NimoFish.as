@@ -1,38 +1,29 @@
 package unit.fish
 {
     import starling.core.Starling;
+    import starling.display.MovieClip;
 
+    import utils.FrameGenerator;
     public class NimoFish extends BaseFish
     {
-        [Embed(source='../media/textures/mc/nets.png')]
+        [Embed(source='../media/textures/mc/nimoFish.png')]
         private static const __bmp:Class;
-        [Embed(source="../media/textures/mc/nets.xml", mimeType="application/octet-stream")]
+        [Embed(source="../media/textures/mc/nimoFish.xml", mimeType="application/octet-stream")]
         private static const __xml:Class;
-        private static const __name:String = "nets";
+        private static const __name:String = "nimoFish";
         
         public function NimoFish()
         {
+            this.name = "nimo";
         }
         
-        public function initialization(x:int = 30,y:int = 30):void{
-            createMovieclip(new __bmp,XML(new __xml),__name);
-            movieClip.x = x;
-            movieClip.y = y;
-//            movieClip.stop();
-            addChild(movieClip);
-            Starling.juggler.add(movieClip);
+        override public function initialization():void{
+            frames = FrameGenerator.generateFrame(new __bmp,XML(new __xml),__name);
+            fish = new MovieClip(frames);
+            addChild(fish);
+            fish.stop();
+            Starling.juggler.add(fish);
         }
         
-        //test
-        public function changeTextures():void{
-            super.changeTexture();
-        }
-        
-        public function play():void{
-            movieClip.play();
-        }
-        public function stop():void{
-            movieClip.stop();
-        }
     }
 }
