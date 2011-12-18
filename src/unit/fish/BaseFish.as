@@ -2,6 +2,7 @@ package unit.fish
 {
     import flash.display.Bitmap;
     
+    import starling.core.Starling;
     import starling.display.MovieClip;
     import starling.display.Sprite;
     import starling.textures.Texture;
@@ -61,13 +62,16 @@ package unit.fish
 //            trace(fishID,"fly");
         }
         
-        public function play():void{
+        public function startSelfFly():void{
+            Starling.juggler.add(fish);
             fish.play();
         }
         
-        public function pause():void{
-            fish.pause();
+        public function stopSelfFly():void{
+            Starling.juggler.remove(fish);
+            fish.pause();//!!
         }
+        
         
         /** 检查鱼是否游出边界*/
         public function isOutBound():Boolean{

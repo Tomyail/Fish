@@ -111,7 +111,7 @@ package com
                             currentDegree:fishLeaderAngle - rowIndex * dic["degreeGap"] * (dic["degreeRate"] >= 0 ? 1:-1)// / Math.abs(dic["degreeRate"])
                         }
                     );
-                    fishGroup[visualFish].play();
+//                    fishGroup[visualFish].play();
 //                    fishManager.addFish(fishGroup[visualFish]);
 //                    marker.addMark(visualFish);
                     //                    trace("visualFish",visualFish,"dic['fn']",dic["fn"]);

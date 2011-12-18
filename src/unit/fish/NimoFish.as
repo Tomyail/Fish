@@ -24,8 +24,6 @@ package unit.fish
             frames = FrameGenerator.generateFrame(new __bmp,XML(new __xml),__name);
             fish = new MovieClip(frames);
             addChild(fish);
-            fish.stop();
-            Starling.juggler.add(fish);
         }
         
     }

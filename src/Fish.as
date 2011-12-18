@@ -19,14 +19,14 @@ package
         private var mStarling:Starling;
         public function Fish():void{
             var stats:Stats = new Stats();
-//            addChild(stats);
+            addChild(stats);
             stage.scaleMode = StageScaleMode.NO_SCALE;
             stage.align = StageAlign.TOP_LEFT;
             
             Starling.multitouchEnabled = true;
             
             mStarling = new Starling(MainGame, stage,new Rectangle(0,0,800,600));
-            mStarling.simulateMultitouch = true;
+            mStarling.simulateMultitouch = false;
             mStarling.enableErrorChecking = false;
             mStarling.start();
             

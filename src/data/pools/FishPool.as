@@ -23,6 +23,7 @@ package data.pools
             index = fishMarker.getAvailableMarkIndex();
             fishMarker.addMark(index);
             fish = fishVector[index];
+            fish.startSelfFly();
             mainGame.gameData.currentWeight += fish.weight;
             mainGame.addChild(fish);
             return fish;
@@ -31,6 +32,7 @@ package data.pools
         public function killFish(fishIndex:int):void{
             fishMarker.removeMark(fishIndex);
             fish = fishVector[index];
+            fish.stopSelfFly();
             mainGame.gameData.currentWeight -= fish.weight;
             mainGame.removeChild(fish);
         }
