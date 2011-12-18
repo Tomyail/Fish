@@ -55,7 +55,7 @@ package unit.fish
             
 //            trace(fishID,isOutBound());
             if(!hasDisplayed && !isOutBound()){
-                trace(fishID,"hasDisplayed")
+//                trace(fishID,"hasDisplayed")
                 hasDisplayed = true;
             }
 //            trace(fishID,"fly");
@@ -92,7 +92,7 @@ package unit.fish
             currentX = noDegreeX * Math.cos(radian) - noDegreeY * Math.sin(radian);
             currentY = noDegreeY * Math.cos(radian) + noDegreeX * Math.sin(radian);
             
-            trace(currentX,currentY,currentDegree,degreeRate)
+//            trace(currentX,currentY,currentDegree,degreeRate)
             radian = degreeRate * Math.PI / 180;
             cos = Math.cos(radian);
             sin = Math.sin(radian);

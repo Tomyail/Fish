@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:86351c9281ec05fe2ad21dbe2eb6e945$ -->
+<!-- $TexturePacker:SmartUpdate:0a10d0dc998582f12ff88db1bcd26490$ -->
 <TextureAtlas imagePath="gunbody.png">
     <SubTexture name="gunbody_01" x="2" y="2" width="90" height="71"/>
     <SubTexture name="gunbody_02" x="94" y="2" width="90" height="71"/>

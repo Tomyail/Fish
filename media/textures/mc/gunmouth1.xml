@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:6125bdab60e64ad1c2d44b34ca71c914$ -->
-<TextureAtlas imagePath="gunmouth1.png">
-    <SubTexture name="gunmouth5_01" x="2" y="2" width="52" height="88"/>
-    <SubTexture name="gunmouth5_02" x="2" y="92" width="52" height="88"/>
-    <SubTexture name="gunmouth5_03" x="2" y="182" width="52" height="88"></SubTexture>
-    <SubTexture name="gunmouth5_04" x="2" y="272" width="52" height="88"/>
-    <SubTexture name="gunmouth5_06" x="2" y="362" width="52" height="74" frameX="0" frameY="0" frameWidth="52" frameHeight="88"/>
+<!-- $TexturePacker:SmartUpdate:6e32f9569238e73fe5a2f424c8b5c06b$ -->
+<TextureAtlas imagePath="gg.png">
+    <SubTexture name="gunmouth1_01" x="2" y="2" width="53" height="71" frameX="0" frameY="0" frameWidth="53" frameHeight="75"/>
+    <SubTexture name="gunmouth1_02" x="57" y="2" width="53" height="71" frameX="0" frameY="0" frameWidth="53" frameHeight="75"/>
+    <SubTexture name="gunmouth1_03" x="2" y="75" width="53" height="75"/>
+    <SubTexture name="gunmouth1_04" x="57" y="75" width="53" height="73" frameX="0" frameY="0" frameWidth="53" frameHeight="75"/>
+    <SubTexture name="gunmouth1_07" x="2" y="152" width="53" height="65" frameX="0" frameY="-5" frameWidth="53" frameHeight="75"/>
 </TextureAtlas>

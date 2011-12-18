@@ -19,7 +19,6 @@ package utils
         
         public static function getObjectFromSource(source:Array):Object{
             i = Math.random()*source.length;
-            trace(i,source[i]);
             return source[i]
         }
     }

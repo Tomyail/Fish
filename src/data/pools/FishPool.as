@@ -41,7 +41,7 @@ package data.pools
                     
                 if(fishVector[index].hasDisplayed && fishVector[index].isOutBound()){
                     killFish(index);
-                    trace(index,"kill")
+//                    trace(index,"kill")
                 }
             }
         }

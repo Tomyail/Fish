@@ -1,5 +1,7 @@
 package 
 {   
+    import flash.display.Bitmap;
+    import flash.display.BitmapData;
     import flash.display.Sprite;
     import flash.display.Stage;
     import flash.display.StageAlign;
@@ -17,7 +19,7 @@ package
         private var mStarling:Starling;
         public function Fish():void{
             var stats:Stats = new Stats();
-            addChild(stats);
+//            addChild(stats);
             stage.scaleMode = StageScaleMode.NO_SCALE;
             stage.align = StageAlign.TOP_LEFT;
             
@@ -27,6 +29,7 @@ package
             mStarling.simulateMultitouch = true;
             mStarling.enableErrorChecking = false;
             mStarling.start();
+            
         }
         
     }

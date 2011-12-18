@@ -21,8 +21,8 @@ package unit
         protected function createMovieclip(bitmap:Bitmap,xml:XML,frameName:String):void{
             frames = FrameGenerator.generateFrame(bitmap,xml,frameName);
             movieClip = new MovieClip(frames,fps);
-            movieClip.pivotX = movieClip.width >>1;
-            movieClip.pivotY = movieClip.height >>1;
+//            movieClip.pivotX = movieClip.width >>1;
+//            movieClip.pivotY = movieClip.height >>1;
         }
         
         protected function changeTexture():void{

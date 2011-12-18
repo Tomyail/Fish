@@ -16,7 +16,7 @@ package
     import starling.events.TouchPhase;
     
     import unit.fish.NimoFish;
-    import unit.gun.Gun;
+    import unit.gun.GunUnit;
     
     public class MainGame extends Sprite
     {
@@ -31,10 +31,9 @@ package
         private var yellowFishMc:MovieClip;
         
         public var gameData:GlobalData = new GlobalData();
-        private var gun:Gun = new Gun;
+        private var gun:GunUnit = new GunUnit;
         
         private var fishFacatory:FishFacatory = new FishFacatory();
-
         public function MainGame()
         {
             addEventListener(Event.ADDED_TO_STAGE,onAdded);
@@ -43,9 +42,11 @@ package
         
         private function updateFrame(e:Event):void
         {
+//            this.flatten();
             gameData.nowTime = getTimer();
             gun.updateFrame();
             fishFacatory.updateFrame();
+//            this.unflatten();
         }
         
         private var fish:NimoFish = new NimoFish();
@@ -66,6 +67,8 @@ package
         private function initialization():void
         {
             gun.initialization(this);
+            gun.x = stage.stageWidth >>1;
+            gun.y = stage.stageHeight - gun.height;
             fish.initialization(this,0);
             addChild(fish);
             
@@ -77,7 +80,7 @@ package
             gameData.globalMouseX = t.globalX;
             gameData.globalMouseY = t.globalY;
             if(t.phase == TouchPhase.BEGAN){
-                gun.fire();
+                gun.fire(t.globalX,t.globalY);
             }
             else if(t.phase == TouchPhase.ENDED){
                 gun.stop();
