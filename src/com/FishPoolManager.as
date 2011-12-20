@@ -31,6 +31,10 @@ package com
             return null;
         }
         
+        
+        public function catchFish(bound:Rectangle):void{
+            nimoFishPool.catchFish(bound);
+        }
         public function hitTest(rangeRect:Rectangle,rect:Rectangle,radian:Number):Boolean{
             return nimoFishPool.hitTest(rangeRect,rect,radian);
         }

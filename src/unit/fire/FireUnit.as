@@ -84,6 +84,7 @@ package unit.fire
             addChild(net);
             Starling.juggler.add(net);
             net.play();
+            cdm.catchFish(this);
         }
         
         private function addBullet():void{

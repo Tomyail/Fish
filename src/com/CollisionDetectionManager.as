@@ -17,5 +17,9 @@ package com
         public function hitTest(fireUnit:FireUnit):Boolean{
             return fishPoolManager.hitTest(fireUnit.rangeBound,fireUnit.bulletBound,fireUnit.bulletRadian);
         }
+        
+        public function catchFish(fireUnit:FireUnit):void{
+            fishPoolManager.catchFish(fireUnit.netBound);
+        }
     }
 }

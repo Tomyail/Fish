@@ -1,7 +1,10 @@
 package unit.fish
 {
+    import event.FishEvent;
+    
     import flash.display.Bitmap;
     import flash.geom.Rectangle;
+    import flash.utils.getTimer;
     
     import starling.core.Starling;
     import starling.display.MovieClip;
@@ -38,7 +41,13 @@ package unit.fish
         public var hasDisplayed:Boolean = false;
         public var fishID:int;
         public var weight:int;
+        public var toDieFlag:Boolean = false;
+        private var dieTime:int;
+        private const dieDely:int = 500;
+        private var fishEvent:FishEvent;
         
+        private const normalFps:int = 12;
+        private const speedupFps:int = 50;
         public function BaseFish()
         {
         }
@@ -50,41 +59,61 @@ package unit.fish
             rect = new Rectangle(0,0,fish.width,fish.height);
             maxBounderLength = (fish.width > fish.height )? fish.width:fish.height;
             _rangeBound.width = _rangeBound.height = maxBounderLength <<1;
+            fishEvent = new FishEvent(FishEvent.FISH_DIE_COMPLETE,fishID,name,true);
         }
         
         public function updateFrame():void{
-            preX = currentX;
-            preY = currentY;
-            currentX = preX * cos - preY * sin;
-            currentY = preY * cos + preX * sin;
-            currentDegree = Math.atan2(currentY,currentX)*180/Math.PI;
-            degreeRate > 0 ? currentDegree +=180:currentDegree -= 0;
-            
-            fish.x = currentX + centerX;
-            fish.y = currentY + centerY;
-            fish.rotation = currentDegree * Math.PI/180;
-            
-//            trace(fishID,isOutBound());
-            if(!hasDisplayed && !isOutBound()){
-//                trace(fishID,"hasDisplayed")
-                hasDisplayed = true;
+            if(!toDieFlag){
+                preX = currentX;
+                preY = currentY;
+                currentX = preX * cos - preY * sin;
+                currentY = preY * cos + preX * sin;
+                currentDegree = Math.atan2(currentY,currentX)*180/Math.PI;
+                degreeRate > 0 ? currentDegree +=180:currentDegree -= 0;
+                
+                fish.x = currentX + centerX;
+                fish.y = currentY + centerY;
+                fish.rotation = currentDegree * Math.PI/180;
+                
+    //            trace(fishID,isOutBound());
+                if(!hasDisplayed && !isOutBound()){
+    //                trace(fishID,"hasDisplayed")
+                    hasDisplayed = true;
+                }
+    //            trace(fishID,"fly");
+            }else{
+                fish.alpha -= 0.05;
+                if(mainGame.gameData.nowTime - dieTime > dieDely){
+                    dispatchEvent(fishEvent);
+                }
             }
-//            trace(fishID,"fly");
         }
         
         public function startSelfFly():void{
             Starling.juggler.add(fish);
+            fish.fps = normalFps;
+            fish.alpha = 1;
             fish.play();
         }
         
         public function stopSelfFly():void{
             Starling.juggler.remove(fish);
             fish.pause();//!!
+            fish.x = fish.y = -500;//let it got out of stage
         }
         
+        public function toDie():void{
+            toDieFlag = true;
+            fish.fps  = speedupFps;
+            dieTime = getTimer();
+        }
         
         /** 检查鱼是否游出边界*/
         public function isOutBound():Boolean{
+            //!这里暂时这么做,不知什么原因从字典中删除的索引居然还能for each出来
+            if(toDieFlag ==true){
+                return false;
+            }
             if(
                 fish.x + fish.width < 0     ||  //left
                 fish.x > stage.stageWidth   ||  //right
@@ -110,6 +139,7 @@ package unit.fish
             radian = degreeRate * Math.PI / 180;
             cos = Math.cos(radian);
             sin = Math.sin(radian);
+            toDieFlag = false;
             hasDisplayed = false;
         }
         

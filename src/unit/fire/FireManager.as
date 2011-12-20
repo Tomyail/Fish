@@ -39,7 +39,6 @@ package unit.fire
         //移除一颗没速度的子弹
         private function killFire(e:FireEvent):void
         {
-            trace("kill",e.id)
             fireMarker.removeMark(e.id);
             fireGroup.removeChild(fireVec[e.id]);
         }

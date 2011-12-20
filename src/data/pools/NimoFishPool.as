@@ -13,13 +13,13 @@ package data.pools
         }
         
         override public function initialization(mainGame:MainGame,initNumber:Number, increaseNumber:int):void{
-            this.mainGame = mainGame;
             this.fishMarker = new Marker(initNumber,true,increaseNumber);
             this.fishVector = new Vector.<NimoFish>;
             for(i = 0;i<initNumber;i++){
                 fishVector[i] = new NimoFish();
                 fishVector[i].initialization(mainGame,i);
             }
+            super.initialization(mainGame,initNumber,increaseNumber);
         }
     }
 }
