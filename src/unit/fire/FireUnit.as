@@ -1,6 +1,10 @@
 package unit.fire
 {
+    import com.CollisionDetectionManager;
+    
     import event.FireEvent;
+    
+    import flash.geom.Rectangle;
     
     import starling.core.Starling;
     import starling.display.Image;
@@ -44,9 +48,17 @@ package unit.fire
         //0:子弹状态 1:网开始展开状态 2:网完全张开状态
         private var currentStatus:int = 0;	
         private var netFrames:Vector.<Texture>;
+        private var bulletRect:Rectangle;
+        private var netRrect:Rectangle;
         
-        public function FireUnit(id:int)
+        private var maxBoundLength:Number;
+        //please use interface .....
+        private var _rangeBound:Rectangle = new Rectangle;
+        private var cdm:CollisionDetectionManager;
+        public function FireUnit(id:int,cdm:CollisionDetectionManager)
         {
+            this.cdm = cdm;
+            
             bulletTexture = Texture.fromBitmap(new bulletBmp,false);
             bullet = new Image(bulletTexture);
             
@@ -58,6 +70,11 @@ package unit.fire
             net.loop = false;
             this.id = id;
             fireEvent = new  FireEvent(FireEvent.FIRE_OVER,id,true);
+            
+            bulletRect = new Rectangle(0,0,bullet.width,bullet.height);
+            netRrect = new Rectangle(0,0,net.width,net.height);
+            maxBoundLength = (bullet.width > bullet.height) ? bullet.width:bullet.height;
+            _rangeBound.width = _rangeBound.height = maxBoundLength<<1;
         }
         
         private function burst():void{
@@ -93,22 +110,48 @@ package unit.fire
             addBullet();
         }
         
+        public function get bulletBound():Rectangle{
+            bulletRect.x = bullet.x;
+            bulletRect.y = bullet.y;
+            return bulletRect;
+        }
+        
+        public function get rangeBound():Rectangle{
+            _rangeBound.x = bullet.x - maxBoundLength;
+            _rangeBound.y = bullet.y - maxBoundLength;
+            return _rangeBound;
+        }
+        
+        public function get bulletRadian():Number{
+            return bullet.rotation;
+        }
+        
+        public function get netBound():Rectangle{
+            netRrect.x = net.x;
+            netRrect.y = net.y;
+            return netRrect;
+        }
         
         public function updateFrame():void{
             if(currentStatus ==0){
                 //todo碰撞检测
-                bullet.x += (tX - bullet.x)*easing;
-                bullet.y += (tY - bullet.y) * easing;
-                if(Math.abs(tX - bullet.x) < minX && Math.abs(tY - bullet.y) < minY){
+                if(cdm.hitTest(this)){
                     currentStatus = 1;
-                    burst();
+                    burst()
+                }else{
+                    bullet.x += (tX - bullet.x)*easing;
+                    bullet.y += (tY - bullet.y) * easing;
+                    if(Math.abs(tX - bullet.x) < minX && Math.abs(tY - bullet.y) < minY){
+                        currentStatus = 1;
+                        burst();
+                    }
                 }
             }
             
             else if(currentStatus == 1){
                 if(net.currentFrame+1 == net.numFrames){
                     fireOver();
-                }
+                }   
             }
         }
     }

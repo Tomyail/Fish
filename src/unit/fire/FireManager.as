@@ -32,7 +32,7 @@ package unit.fire
             
             fireGroup.addEventListener(FireEvent.FIRE_OVER,killFire);
             for(i = 0;i<initFireBuff;i++){
-                fireVec[i] = new FireUnit(i);
+                fireVec[i] = new FireUnit(i,mainGame.cdm);
             }
         }
         

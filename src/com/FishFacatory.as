@@ -7,7 +7,7 @@ package com
         private var lastActiveTime:int;
         private const ORDER_INTERNAL:int = 10000;
         private var fishOrder:FishOrder = new FishOrder();
-        private var fishPoolManager:FishPoolManager = new FishPoolManager();
+        public var fishPoolManager:FishPoolManager = new FishPoolManager();
         public function FishFacatory()
         {
         }

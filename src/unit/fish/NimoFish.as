@@ -1,9 +1,12 @@
 package unit.fish
 {
+    import flash.geom.Rectangle;
+    
     import starling.core.Starling;
     import starling.display.MovieClip;
     
     import utils.FrameGenerator;
+
     public class NimoFish extends BaseFish
     {
         [Embed(source='../media/textures/mc/nimoFish.png')]
@@ -19,11 +22,10 @@ package unit.fish
         }
         
         override public function initialization(mainGame:MainGame,fishID:int):void{
-            this.mainGame = mainGame;
-            this.fishID = fishID;
             frames = FrameGenerator.generateFrame(new __bmp,XML(new __xml),__name);
             fish = new MovieClip(frames);
-            addChild(fish);
+            
+            super.initialization(mainGame,fishID);
         }
         
     }

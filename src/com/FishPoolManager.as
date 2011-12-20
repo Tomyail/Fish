@@ -1,9 +1,11 @@
 package com
 {
+    import data.pools.NimoFishPool;
+    
+    import flash.geom.Rectangle;
     import flash.utils.Dictionary;
     
     import unit.fish.BaseFish;
-    import data.pools.NimoFishPool;
 
     public class FishPoolManager
     {
@@ -27,6 +29,10 @@ package com
                     return nimoFishPool.addFish();
             }
             return null;
+        }
+        
+        public function hitTest(rangeRect:Rectangle,rect:Rectangle,radian:Number):Boolean{
+            return nimoFishPool.hitTest(rangeRect,rect,radian);
         }
         
         public function updateFrame():void{

@@ -1,6 +1,7 @@
 package unit.fish
 {
     import flash.display.Bitmap;
+    import flash.geom.Rectangle;
     
     import starling.core.Starling;
     import starling.display.MovieClip;
@@ -11,35 +12,44 @@ package unit.fish
     
     public class BaseFish extends Sprite
     {
-        protected var str:String;
-        protected var radian:Number;
-        protected var currentDegree:Number;
-        protected var currentX:Number;
-        protected var currentY:Number;
-        protected var degreeRate:Number;
-        protected var cos:Number;
-        protected var sin:Number;
-        protected var noDegreeX:Number;
-        protected var noDegreeY:Number;
-        protected var preX:Number;
-        protected var preY:Number;
-        protected var centerX:Number;
-        protected var centerY:Number;
+        private var str:String;
+        private var radian:Number;
+        private var currentDegree:Number;
+        private var currentX:Number;
+        private var currentY:Number;
+        private var degreeRate:Number;
+        private var cos:Number;
+        private var sin:Number;
+        private var noDegreeX:Number;
+        private var noDegreeY:Number;
+        private var preX:Number;
+        private var preY:Number;
+        private var centerX:Number;
+        private var centerY:Number;
+        private var rect:Rectangle;
+        private var _rangeBound:Rectangle = new Rectangle;
+        private var maxBounderLength:Number;
+        private var mainGame:MainGame;
         
         protected var fish:MovieClip;
         protected var frames:Vector.<Texture>;
         
-        protected var mainGame:MainGame;
         
         public var hasDisplayed:Boolean = false;
         public var fishID:int;
         public var weight:int;
+        
         public function BaseFish()
         {
         }
         
         public function initialization(mainGame:MainGame,fishID:int):void{
-            throw new Error("please override...")
+            this.fishID = fishID;
+            this.mainGame = mainGame;
+            addChild(fish);
+            rect = new Rectangle(0,0,fish.width,fish.height);
+            maxBounderLength = (fish.width > fish.height )? fish.width:fish.height;
+            _rangeBound.width = _rangeBound.height = maxBounderLength <<1;
         }
         
         public function updateFrame():void{
@@ -103,5 +113,19 @@ package unit.fish
             hasDisplayed = false;
         }
         
+        public function get rangeBound():Rectangle{
+            _rangeBound.x = fish.x - maxBounderLength;
+            _rangeBound.y = fish.y - maxBounderLength;
+            return _rangeBound;
+        }
+        public function get bound():Rectangle{
+            rect.x = fish.x;
+            rect.y = fish.y;
+            return rect;
+        }
+        
+        public function get currentRadian():Number{
+            return fish.rotation;
+        }
     }
 }

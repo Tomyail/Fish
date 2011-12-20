@@ -1,5 +1,6 @@
 package
 {
+    import com.CollisionDetectionManager;
     import com.FishFacatory;
     
     import data.GlobalData;
@@ -50,6 +51,8 @@ package
         }
         
         private var fish:NimoFish = new NimoFish();
+
+        public var cdm:CollisionDetectionManager = new CollisionDetectionManager();
         private function onAdded(e:Event):void
         {
            
@@ -73,6 +76,7 @@ package
             addChild(fish);
             
             fishFacatory.initialization(this);
+            cdm.initialization(fishFacatory.fishPoolManager);
         }
         
         private function onTouch(e:TouchEvent):void{
