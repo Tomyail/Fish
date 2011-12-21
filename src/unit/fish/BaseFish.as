@@ -9,6 +9,7 @@ package unit.fish
     import starling.core.Starling;
     import starling.display.MovieClip;
     import starling.display.Sprite;
+    import starling.text.TextField;
     import starling.textures.Texture;
     
     import unit.BaseMovieClip;
@@ -48,6 +49,7 @@ package unit.fish
         
         private const normalFps:int = 12;
         private const speedupFps:int = 50;
+        private var score:TextField;
         public function BaseFish()
         {
         }
@@ -60,6 +62,10 @@ package unit.fish
             maxBounderLength = (fish.width > fish.height )? fish.width:fish.height;
             _rangeBound.width = _rangeBound.height = maxBounderLength <<1;
             fishEvent = new FishEvent(FishEvent.FISH_DIE_COMPLETE,fishID,name,true);
+            score = new TextField(100,50,"");
+            score.color = 0xff0000;
+            score.pivotX = score.width >>1;
+            score.pivotY = score.height >>1;
         }
         
         public function updateFrame():void{
@@ -83,7 +89,9 @@ package unit.fish
     //            trace(fishID,"fly");
             }else{
                 fish.alpha -= 0.05;
+                score.fontSize --;
                 if(mainGame.gameData.nowTime - dieTime > dieDely){
+                    removeChild(score);
                     dispatchEvent(fishEvent);
                 }
             }
@@ -104,6 +112,11 @@ package unit.fish
         
         public function toDie():void{
             toDieFlag = true;
+            score.x = fish.x;
+            score.y = fish.y;
+            addChild(score);
+            score.text = "100";
+            score.fontSize = 30;
             fish.fps  = speedupFps;
             dieTime = getTimer();
         }
