@@ -1,11 +1,11 @@
-package unit.fire
+package unit.gunGroup.fire
 {
     import event.FireEvent;
     
     import starling.display.Sprite;
     import starling.events.EventDispatcher;
     
-    import unit.gun.GunHead;
+    import unit.gunGroup.gun.GunHead;
     
     import utils.Marker;
     

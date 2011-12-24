@@ -1,17 +1,20 @@
 package com
 {
-    import unit.fire.FireUnit;
+    import unit.gunGroup.GunGroup;
+    import unit.gunGroup.fire.FireUnit;
     
 
-    public class CollisionDetectionManager
+    public class Proxy
     {
         private var fishPoolManager:FishPoolManager;
-        public function CollisionDetectionManager()
+        private var gunGroup:GunGroup;
+        public function Proxy()
         {
         }
         
-        public function initialization(fishPoolManager:FishPoolManager):void{
+        public function initialization(fishPoolManager:FishPoolManager,gunGroup:GunGroup):void{
             this.fishPoolManager = fishPoolManager;
+            this.gunGroup = gunGroup;
         }
         
         public function hitTest(fireUnit:FireUnit):Boolean{
@@ -20,6 +23,10 @@ package com
         
         public function catchFish(fireUnit:FireUnit):void{
             fishPoolManager.catchFish(fireUnit.netBound);
+        }
+        
+        public function addScore(score:int):void{
+            gunGroup.addScore(score);
         }
     }
 }

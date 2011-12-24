@@ -31,15 +31,16 @@ package com
         private var rowIndex:int;
         
         private var data:Vector.<Object> = Vector.<Object>([
-            {label:"FishNumber",    v:10, t:"fn", h:changeValue},        //鱼总数
-            {label:"FishColumn",    v:2,  t:"fc", h:changeValue},        //鱼列数
-            {label:"FishColumnGap", v:20,  t:"fcg",h:changeValue},        //相邻列之间鱼的半径增量
-            {label:"CenterX",       v:0,t:"centerX", h:changeValue},   //圆心
-            {label:"CenterY",       v:0,t:"centerY", h:changeValue},
-            {label:"FirstCurrentX", v:500, t:"currentX",h:changeValue},   //最接近圆心的那列鱼中第一排的初始坐标
-            {label:"FirstCurrentY", v:-100,  t:"currentY",h:changeValue},
-            {label:"DegreeRate",    v:1,  t:"degreeRate", h:changeValue},//每条鱼的旋转增量
-            {label:"DegreeGap",     v:8,  t:"degreeGap", h:changeValue}  //相邻两排鱼之间的角度差
+            {label:"FishNumber",    v:10, t:"fn"},        //鱼总数
+            {label:"FishColumn",    v:2,  t:"fc"},        //鱼列数
+            {label:"FishColumnGap", v:20,  t:"fcg"},        //相邻列之间鱼的半径增量
+            {label:"CenterX",       v:0,t:"centerX"},   //圆心
+            {label:"CenterY",       v:0,t:"centerY"},
+            {label:"FirstCurrentX", v:500, t:"currentX"},   //最接近圆心的那列鱼中第一排的初始坐标
+            {label:"FirstCurrentY", v:-100,  t:"currentY"},
+            {label:"DegreeRate",    v:1,  t:"degreeRate"},//每条鱼的旋转增量
+            {label:"DegreeGap",     v:8,  t:"degreeGap"},  //相邻两排鱼之间的角度差
+            {label:"Score",          v:20, t:"score"}      //分数
         ]);
         
         private function changeValue():void{
@@ -83,6 +84,7 @@ package com
             dic["currentY"] = RandomGenerator.getIntFromRange(100,500);
             dic["degreeRate"] = RandomGenerator.getObjectFromSource([-1,1]);
             dic["degreeGap"] = RandomGenerator.getIntFromRange(8,14);
+            dic["score"] = RandomGenerator.getIntFromRange(2,20);
         }
         
         
@@ -108,7 +110,8 @@ package com
                             degreeRate:dic["degreeRate"],
                             noDegreeX:fishLeaderRadius + j*dic["fcg"],//attention
                             noDegreeY:0,                                         
-                            currentDegree:fishLeaderAngle - rowIndex * dic["degreeGap"] * (dic["degreeRate"] >= 0 ? 1:-1)// / Math.abs(dic["degreeRate"])
+                            currentDegree:fishLeaderAngle - rowIndex * dic["degreeGap"] * (dic["degreeRate"] >= 0 ? 1:-1),// / Math.abs(dic["degreeRate"])
+                            score:dic["score"]
                         }
                     );
 //                    fishGroup[visualFish].play();

@@ -1,6 +1,6 @@
-package unit.fire
+package unit.gunGroup.fire
 {
-    import com.CollisionDetectionManager;
+    import com.Proxy;
     
     import event.FireEvent;
     
@@ -12,7 +12,7 @@ package unit.fire
     import starling.display.Sprite;
     import starling.textures.Texture;
     
-    import unit.gun.GunHead;
+    import unit.gunGroup.gun.GunHead;
     
     import utils.FrameGenerator;
     
@@ -54,8 +54,8 @@ package unit.fire
         private var maxBoundLength:Number;
         //please use interface .....
         private var _rangeBound:Rectangle = new Rectangle;
-        private var cdm:CollisionDetectionManager;
-        public function FireUnit(id:int,cdm:CollisionDetectionManager)
+        private var cdm:Proxy;
+        public function FireUnit(id:int,cdm:Proxy)
         {
             this.cdm = cdm;
             

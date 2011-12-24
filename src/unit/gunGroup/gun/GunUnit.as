@@ -1,11 +1,12 @@
-package unit.gun
+package unit.gunGroup.gun
 {
     
     import starling.display.Sprite;
     import starling.utils.deg2rad;
     import starling.utils.rad2deg;
     
-    import unit.fire.FireManager;
+    import unit.gunGroup.fire.FireManager;
+    import unit.scorePanel.ScorePanel;
 
     public class GunUnit extends Sprite
     {

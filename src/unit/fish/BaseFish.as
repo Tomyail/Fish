@@ -43,13 +43,14 @@ package unit.fish
         public var fishID:int;
         public var weight:int;
         public var toDieFlag:Boolean = false;
+        public var score:int = 100;
         private var dieTime:int;
         private const dieDely:int = 500;
         private var fishEvent:FishEvent;
         
         private const normalFps:int = 12;
         private const speedupFps:int = 50;
-        private var score:TextField;
+        private var scoreTf:TextField;
         public function BaseFish()
         {
         }
@@ -62,10 +63,10 @@ package unit.fish
             maxBounderLength = (fish.width > fish.height )? fish.width:fish.height;
             _rangeBound.width = _rangeBound.height = maxBounderLength <<1;
             fishEvent = new FishEvent(FishEvent.FISH_DIE_COMPLETE,fishID,name,true);
-            score = new TextField(100,50,"");
-            score.color = 0xff0000;
-            score.pivotX = score.width >>1;
-            score.pivotY = score.height >>1;
+            scoreTf = new TextField(100,50,"");
+            scoreTf.color = 0xff0000;
+            scoreTf.pivotX = scoreTf.width >>1;
+            scoreTf.pivotY = scoreTf.height >>1;
         }
         
         public function updateFrame():void{
@@ -89,9 +90,9 @@ package unit.fish
     //            trace(fishID,"fly");
             }else{
                 fish.alpha -= 0.05;
-                score.fontSize --;
+                scoreTf.fontSize --;
                 if(mainGame.gameData.nowTime - dieTime > dieDely){
-                    removeChild(score);
+                    removeChild(scoreTf);
                     dispatchEvent(fishEvent);
                 }
             }
@@ -112,11 +113,11 @@ package unit.fish
         
         public function toDie():void{
             toDieFlag = true;
-            score.x = fish.x;
-            score.y = fish.y;
-            addChild(score);
-            score.text = "100";
-            score.fontSize = 30;
+            scoreTf.x = fish.x;
+            scoreTf.y = fish.y;
+            addChild(scoreTf);
+            scoreTf.text = score.toString();
+            scoreTf.fontSize = 30;
             fish.fps  = speedupFps;
             dieTime = getTimer();
         }

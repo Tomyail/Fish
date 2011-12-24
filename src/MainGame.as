@@ -1,6 +1,6 @@
 package
 {
-    import com.CollisionDetectionManager;
+    import com.Proxy;
     import com.FishFacatory;
     
     import data.GlobalData;
@@ -17,24 +17,16 @@ package
     import starling.events.TouchPhase;
     
     import unit.fish.NimoFish;
-    import unit.gun.GunUnit;
+    import unit.gunGroup.GunGroup;
+    import unit.scorePanel.ScorePanel;
     
     public class MainGame extends Sprite
     {
-        [Embed(source='../media/textures/fish/yellowFish.png')]
-        private static const YellowFish:Class;
-        [Embed(source="../media/textures/fish/yellowFish.xml", mimeType="application/octet-stream")]
-        private static const YellowFishXML:Class;
-        
-        private var bmp:Bitmap;
-        private var yellowFish:Image;
-        private var xml:XML;
-        private var yellowFishMc:MovieClip;
-        
         public var gameData:GlobalData = new GlobalData();
-        private var gun:GunUnit = new GunUnit;
-        
         private var fishFacatory:FishFacatory = new FishFacatory();
+        private var gunGroup:GunGroup = new GunGroup;
+        public var cdm:Proxy = new Proxy();
+        
         public function MainGame()
         {
             addEventListener(Event.ADDED_TO_STAGE,onAdded);
@@ -45,14 +37,11 @@ package
         {
 //            this.flatten();
             gameData.nowTime = getTimer();
-            gun.updateFrame();
             fishFacatory.updateFrame();
+            gunGroup.updateFrame();
 //            this.unflatten();
         }
         
-        private var fish:NimoFish = new NimoFish();
-
-        public var cdm:CollisionDetectionManager = new CollisionDetectionManager();
         private function onAdded(e:Event):void
         {
            
@@ -69,14 +58,9 @@ package
         
         private function initialization():void
         {
-            gun.initialization(this);
-            gun.x = stage.stageWidth >>1;
-            gun.y = stage.stageHeight - gun.height;
-            fish.initialization(this,0);
-            addChild(fish);
-            
+            gunGroup.initialization(this,null);
             fishFacatory.initialization(this);
-            cdm.initialization(fishFacatory.fishPoolManager);
+            cdm.initialization(fishFacatory.fishPoolManager,gunGroup);
         }
         
         private function onTouch(e:TouchEvent):void{
@@ -84,17 +68,12 @@ package
             gameData.globalMouseX = t.globalX;
             gameData.globalMouseY = t.globalY;
             if(t.phase == TouchPhase.BEGAN){
-                gun.fire(t.globalX,t.globalY);
+                gunGroup.startFire(t.globalX,t.globalY);
             }
             else if(t.phase == TouchPhase.ENDED){
-                gun.stop();
+                gunGroup.stopFire();
             }
             
         }
-        
-        
-        
-        
-        
     }
 }

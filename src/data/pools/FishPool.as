@@ -34,6 +34,7 @@ package data.pools
         
         private function onFishDie(e:FishEvent):void{
 //            trace("kill Fish",e.id)
+            mainGame.cdm.addScore(fishVector[e.id].score);
             killFish(e.id);
         }
         
