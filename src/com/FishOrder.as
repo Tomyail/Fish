@@ -65,6 +65,7 @@ package com
             createFishGroup();
         }
         
+        private var MINI_LENGTH:int = 300;
         private function createRandomData():void{
 //            {label:"FishNumber",    v:10, t:"fn", h:changeValue},        //鱼总数
 //            {label:"FishColumn",    v:2,  t:"fc", h:changeValue},        //鱼列数
@@ -75,16 +76,80 @@ package com
 //            {label:"FirstCurrentY", v:-100,  t:"currentY",h:changeValue},
 //            {label:"DegreeRate",    v:1,  t:"degreeRate", h:changeValue},//每条鱼的旋转增量
 //            {label:"DegreeGap",     v:8,  t:"degreeGap", h:changeValue}  //相邻两排鱼之间的角度差
-            dic["fn"] = RandomGenerator.getIntFromRange(1,15);              //随机一队鱼的数量
-            dic["fc"] = RandomGenerator.getIntFromRange(1,3);
+            dic["fn"] = RandomGenerator.getIntFromRange(1,10);              //随机一队鱼的数量
+            dic["fc"] = RandomGenerator.getIntFromRange(1,2);
             dic["fcg"] = 20;
-            dic["centerX"] = 0;
-            dic["centerY"] = 0;
-            dic["currentX"] = RandomGenerator.getIntFromRange(100,500);
-            dic["currentY"] = RandomGenerator.getIntFromRange(100,500);
-            dic["degreeRate"] = RandomGenerator.getObjectFromSource([-1,1]);
+            dic["degreeRate"] = RandomGenerator.getObjectFromSource([1,-1]);
             dic["degreeGap"] = RandomGenerator.getIntFromRange(8,14);
             dic["score"] = RandomGenerator.getIntFromRange(2,20);
+            var dir:int = int(RandomGenerator.getObjectFromSource([0,1,2,3]))
+            switch(dir)
+            {
+                //left top
+                case 0:
+                {
+                    dic["centerX"] = 0;
+                    dic["centerY"] = 0;
+                    if(dic["degreeRate"] == 1){
+                        dic["currentX"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageWidth);
+                        dic["currentY"] = 0//-100//RandomGenerator.getIntFromRange(100,mainGame.stage.stageHeight);
+                    }else{
+                        dic["currentX"] = 0//RandomGenerator.getIntFromRange(100,mainGame.stage.stageWidth);
+                        dic["currentY"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageHeight);
+                    }
+                    break;
+                }
+                //right top    
+                case 1:
+                {
+                    dic["centerX"] = mainGame.stage.stageWidth;
+                    dic["centerY"] = 0;
+                    if(dic["degreeRate"] == 1){
+                        dic["currentX"] = 100//RandomGenerator.getIntFromRange(100,mainGame.stage.stageWidth);
+                        dic["currentY"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageHeight);
+                    }else{
+                        dic["currentX"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageWidth);
+                        dic["currentY"] = -100//RandomGenerator.getIntFromRange(100,mainGame.stage.stageHeight);
+                    }
+                    break;
+                }
+                //left botton
+                case 2:
+                {
+                    dic["centerX"] = 0;
+                    dic["centerY"] = mainGame.stage.stageHeight;
+                    if(dic["degreeRate"] == -1){
+                        dic["currentX"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageWidth);
+                        dic["currentY"] = 0//-100//RandomGenerator.getIntFromRange(100,mainGame.stage.stageHeight);
+                    }else{
+                        dic["currentX"] = 0//RandomGenerator.getIntFromRange(100,mainGame.stage.stageWidth);
+                        dic["currentY"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageHeight);
+                    }
+                    break;
+                }
+                //right botton    
+                case 3:
+                {
+                    dic["centerX"] = mainGame.stage.stageWidth;
+                    dic["centerY"] = mainGame.stage.stageHeight;
+                    if(dic["degreeRate"] == -1){
+                        dic["currentX"] = 100//RandomGenerator.getIntFromRange(100,mainGame.stage.stageWidth);
+                        dic["currentY"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageHeight);
+                    }else{
+                        dic["currentX"] = RandomGenerator.getIntFromRange(MINI_LENGTH,mainGame.stage.stageWidth);
+                        dic["currentY"] = -100//RandomGenerator.getIntFromRange(100,mainGame.stage.stageHeight);
+                    }
+                    break;
+                    break;
+                }
+                    
+                default:
+                {
+                    break;
+                }
+            }
+//            dic["centerX"] = 0;
+//            dic["centerY"] = 0;
         }
         
         

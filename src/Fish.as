@@ -13,7 +13,7 @@ package
     
     import utils.Stats;
     
-    [SWF(backgroundColor="0x000000",width="800",height="600")] 
+    [SWF(backgroundColor="0x000000",width="1024",height="768")] 
     public class Fish extends Sprite
     {
         private var mStarling:Starling;
@@ -25,7 +25,7 @@ package
             
             Starling.multitouchEnabled = true;
             
-            mStarling = new Starling(MainGame, stage,new Rectangle(0,0,800,600));
+            mStarling = new Starling(MainGame, stage,new Rectangle(0,0,1024,768));
             mStarling.simulateMultitouch = false;
             mStarling.enableErrorChecking = false;
             mStarling.start();
