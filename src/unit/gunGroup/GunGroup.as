@@ -2,6 +2,8 @@ package unit.gunGroup
 {
     import com.FishPoolManager;
     
+    import flash.utils.getTimer;
+    
     import unit.gunGroup.fire.FireManager;
     import unit.gunGroup.gun.GunUnit;
     import unit.scorePanel.ScorePanel;
@@ -23,12 +25,17 @@ package unit.gunGroup
         //子弹管理器
         private var fireManager:FireManager;
         private var cost:int = 10;
+        private var mainGame:MainGame;
+        
+        public var lastFireTime:int = 0;
+        
         public function GunGroup()
         {
         }
         
         public function initialization(mainGame:MainGame,fishPoolManager:FishPoolManager):void{
             gunUnit = new GunUnit();
+            this.mainGame = mainGame
             gunUnit.initialization(mainGame);
             mainGame.addChild(gunUnit);
             gunUnit.x = mainGame.stage.stageWidth>>1;
@@ -56,6 +63,7 @@ package unit.gunGroup
         public function startFire(targetX:Number,targetY:Number):void{
             if(scorePannel.consumeScore(cost)){
                 gunUnit.fire(targetX,targetY);
+                lastFireTime = mainGame.gameData.nowTime;
             }
         }
         

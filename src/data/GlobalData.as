@@ -13,6 +13,7 @@ package data
         
         public var nowTime:int;
         public var currentWeight:int;
+        public var downFlag:Boolean;
         public function GlobalData()
         {
         }

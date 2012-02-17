@@ -51,6 +51,11 @@ package
             gameData.nowTime = getTimer();
             fishFacatory.updateFrame();
             gunGroup.updateFrame();
+            if(gameData.downFlag && gameData.nowTime - gunGroup.lastFireTime> 300){
+                gunGroup.startFire(gameData.globalMouseX,gameData.globalMouseY);
+            }else if(!gameData.downFlag){
+                gunGroup.stopFire();
+            }
 //            this.unflatten();
         }
         
@@ -99,11 +104,12 @@ package
             var t:Touch = e.getTouch(stage);
             gameData.globalMouseX = t.globalX;
             gameData.globalMouseY = t.globalY;
+            
             if(t.phase == TouchPhase.BEGAN){
-                gunGroup.startFire(t.globalX,t.globalY);
+                gameData.downFlag = true;
             }
             else if(t.phase == TouchPhase.ENDED){
-                gunGroup.stopFire();
+                gameData.downFlag = false
             }
             
         }
